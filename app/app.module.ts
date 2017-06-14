@@ -15,10 +15,14 @@ import { NavBarComponent } from './nav/navbar.component';
 import { ToastrService } from './common/toastr.service';
 import { Error404Component } from './errors/404.component';
 import { AppRoutes } from './routes';
+import { AuthService } from './user/auth.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 
 @NgModule({
     imports: [
         BrowserModule,
+        FormsModule,
+        ReactiveFormsModule,
         RouterModule.forRoot(AppRoutes)
     ],
     declarations: [
@@ -36,6 +40,7 @@ import { AppRoutes } from './routes';
         ToastrService,
         EventRouteActivator,
         EventListResolver,
+        AuthService,
         { provide: 'canDeactivateCreateEvent', useValue: checkDirtyState }
     ]
 })
